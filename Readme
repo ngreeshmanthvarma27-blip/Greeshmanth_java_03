@@ -1,0 +1,331 @@
+Adaptive Traffic Signal System
+
+A Java-based Adaptive Traffic Signal System that dynamically manages traffic signals according to vehicle density on different roads. The system also provides emergency priority and a real-time countdown timer.
+
+Overview
+
+Traditional traffic signal systems generally operate using fixed timings. This project demonstrates a simple adaptive approach where the green signal duration changes according to the number of vehicles waiting on each road.
+
+The system manages four roads:
+
+North
+
+South
+
+East
+
+West
+
+The road with the highest traffic density can be selected for the green signal, while emergency situations can immediately assign priority to a selected road.
+
+Features
+
+Adaptive traffic signal selection
+
+Dynamic green signal timing
+
+Real-time countdown timer
+
+Emergency road priority
+
+Vehicle count management
+
+Input validation
+
+Menu-driven console interface
+
+Multithreading for timer management
+
+How the System Works
+
+The system maintains the number of vehicles on four roads.
+
+When adaptive signal selection is requested:
+
+The system calculates the total number of vehicles.
+
+It compares the vehicle count on each road.
+
+The road with the highest number of vehicles is selected.
+
+Green signal duration is calculated based on traffic density.
+
+Ten vehicles are simulated as passing through the selected road.
+
+The countdown timer starts for the selected green signal.
+
+If an emergency is reported, the selected emergency road immediately receives the green signal.
+
+Green Signal Calculation
+
+The system calculates green signal duration using the following formula:
+
+Green Time = Minimum Time + (Vehicles × Maximum Extra Time / Total Vehicles)
+
+
+The values used by the program are:
+
+Minimum Time       = 10 seconds
+Maximum Extra Time = 30 seconds
+Maximum Green Time = 40 seconds
+
+
+If there are no vehicles on any road, the default green signal duration is 30 seconds.
+
+Emergency Priority
+
+The system allows emergency priority to be assigned to any road.
+
+For example:
+
+Select Emergency Road:
+
+1. North
+2. South
+3. East
+4. West
+
+
+After selecting a road, the system immediately changes the current green signal to that road.
+
+The program also simulates 10 vehicles passing through the emergency-priority road and resets the signal timer to 30 seconds.
+
+Project Structure
+adaptive-traffic-signal/
+│
+├── Main.java
+├── README.md
+└── .gitignore
+
+Main Components
+Road Class
+
+The Road class represents an individual road.
+
+It stores:
+
+String name;
+int vehicles;
+boolean emergency;
+
+
+These properties represent the road name, number of vehicles, and emergency status.
+
+Main Class
+
+The Main class contains the complete traffic signal simulation.
+
+Major methods include:
+
+calculateGreenTime()
+getInteger()
+updateTraffic()
+displayTraffic()
+updateTimerOnly()
+startTimer()
+selectRoad()
+emergency()
+printMenu()
+main()
+
+Menu
+
+The application provides the following options:
+
+1. Update Traffic
+2. Display Traffic
+3. Select Adaptive Signal
+4. Emergency Priority
+5. Exit
+
+Update Traffic
+
+Allows the user to enter the number of vehicles on each road.
+
+Example:
+
+Enter North vehicles: 25
+Enter South vehicles: 15
+Enter East vehicles: 40
+Enter West vehicles: 20
+
+Display Traffic
+
+Displays the current traffic information:
+
+North : 25 vehicles
+South : 15 vehicles
+East  : 40 vehicles
+West  : 20 vehicles
+
+Green Signal : East
+Time Remaining : 35 seconds
+
+Select Adaptive Signal
+
+The program identifies the road with the highest traffic volume and assigns the green signal to that road.
+
+Emergency Priority
+
+Allows the user to immediately give green-signal priority to a selected road.
+
+Exit
+
+Stops the traffic signal simulation and terminates the program.
+
+Technologies Used
+
+Java
+
+Object-Oriented Programming
+
+Java Threads
+
+Scanner
+
+Arrays
+
+Lambda Expressions
+
+Console-based User Interface
+
+Requirements
+
+To run this project, you need:
+
+Java Development Kit 8 or later
+
+Command Prompt, Terminal, or an IDE such as IntelliJ IDEA, Eclipse, or Visual Studio Code
+
+Check your Java installation:
+
+java -version
+javac -version
+
+Installation and Execution
+
+Clone the repository:
+
+git clone https://github.com/your-username/adaptive-traffic-signal.git
+
+
+Navigate to the project directory:
+
+cd adaptive-traffic-signal
+
+
+Compile the program:
+
+javac Main.java
+
+
+Run the application:
+
+java Main
+
+Example
+
+Consider the following traffic:
+
+North : 20 vehicles
+South : 10 vehicles
+East  : 40 vehicles
+West  : 10 vehicles
+
+
+The total number of vehicles is:
+
+20 + 10 + 40 + 10 = 80
+
+
+Since East has the highest number of vehicles, the adaptive signal selects East.
+
+The green signal duration is then calculated based on the traffic distribution.
+
+Program Concepts
+
+This project demonstrates the following Java concepts:
+
+Classes and Objects
+
+Constructors
+
+Static Members
+
+Arrays
+
+Methods
+
+Loops
+
+Conditional Statements
+
+Switch Statements
+
+Input Validation
+
+Multithreading
+
+Lambda Expressions
+
+Boolean Variables
+
+Console Input and Output
+
+Limitations
+
+This project is a simulation and does not control real-world traffic signals.
+
+Vehicle counts are entered manually by the user, and emergency priority is also manually selected.
+
+The timer and traffic movement are simulated within the Java console application.
+
+Future Enhancements
+
+Possible future improvements include:
+
+Automatic vehicle detection using cameras
+
+Computer vision-based traffic counting
+
+Automatic emergency vehicle detection
+
+Machine learning for traffic prediction
+
+Web-based traffic monitoring
+
+Database integration
+
+Traffic history and analytics
+
+Graphical user interface
+
+IoT-based traffic signal control
+
+Integration with real traffic-control hardware
+
+Learning Objectives
+
+The project was developed to understand how programming concepts can be applied to a real-world traffic management problem.
+
+It focuses on:
+
+Dynamic decision making
+
+Traffic-based signal timing
+
+Real-time timer management
+
+Emergency handling
+
+Object-oriented programming
+
+Multithreaded programming
+
+Author
+
+N.Greeshmanth
+
+License
+
+This project is intended for educational and learning purposes.
